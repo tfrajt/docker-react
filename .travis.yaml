@@ -1,0 +1,10 @@
+sudo: required
+services:
+- docker
+
+before_install:
+- docker build -f -t trajt/docker-react Dockerfile.dev .
+
+
+script:
+- docker run -t trajt/docker-react npm run test -- --coverage
